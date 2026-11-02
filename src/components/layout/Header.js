@@ -52,7 +52,7 @@ export default function Header() {
     <header className="w-full bg-white border-b border-gray-200 sticky top-0 z-50 shadow-xs">
       {/* Top Header Row */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 gap-3 sm:gap-4">
+        <div className="flex items-center justify-between h-16 gap-4">
           {/* Left: Brand Logo */}
           <div className="shrink-0 flex items-center">
             <Link href="/" className="inline-flex items-center gap-1 group">
@@ -63,7 +63,7 @@ export default function Header() {
           </div>
 
           {/* Center: Search Bar (Desktop & Tablet) */}
-          <div className="hidden md:flex flex-1 max-w-2xl mx-2">
+          <div className="hidden md:flex flex-1 max-w-3xl mx-auto">
             <form
               onSubmit={handleSearch}
               className="flex w-full items-center border border-gray-300 rounded-lg overflow-hidden bg-white hover:border-gray-400 focus-within:border-[#0076D7] focus-within:ring-1 focus-within:ring-[#0076D7] transition-all shadow-xs"
@@ -134,22 +134,6 @@ export default function Header() {
                 <span>Search</span>
               </button>
             </form>
-          </div>
-
-          {/* Right: User Actions (Desktop) */}
-          <div className="hidden md:flex items-center gap-3 shrink-0">
-            <Link
-              href="/login"
-              className="text-sm font-semibold text-gray-700 hover:text-[#0076D7] px-3 py-1.5 rounded-md hover:bg-gray-50 transition-colors"
-            >
-              Login
-            </Link>
-            <Link
-              href="/signup"
-              className="text-sm font-semibold text-white bg-[#0076D7] hover:bg-[#005bb5] px-4 py-1.5 rounded-md shadow-xs transition-colors"
-            >
-              Sign Up
-            </Link>
           </div>
 
           {/* Mobile Right: Hamburger Toggle Button */}
@@ -256,7 +240,7 @@ export default function Header() {
 
       {/* Mobile Collapsible Navigation Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden border-t border-gray-200 bg-white px-4 pt-3 pb-5 space-y-3 shadow-md">
+        <div className="md:hidden border-t border-gray-200 bg-white px-4 pt-3 pb-4 space-y-3 shadow-md">
           <div className="text-xs font-semibold text-gray-400 uppercase tracking-wider px-2">
             Categories & Services
           </div>
@@ -271,22 +255,6 @@ export default function Header() {
                 {link.name}
               </Link>
             ))}
-          </div>
-          <div className="pt-3 border-t border-gray-100 flex items-center gap-3">
-            <Link
-              href="/login"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="flex-1 text-center text-sm font-semibold text-gray-700 py-2 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors"
-            >
-              Login
-            </Link>
-            <Link
-              href="/signup"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="flex-1 text-center text-sm font-semibold text-white bg-[#0076D7] hover:bg-[#005bb5] py-2 rounded-md transition-colors"
-            >
-              Sign Up
-            </Link>
           </div>
         </div>
       )}
