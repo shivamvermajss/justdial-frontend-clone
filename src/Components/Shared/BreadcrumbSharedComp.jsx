@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function Breadcrumb({ items = [] }) {
+export default function BreadcrumbSharedComp({ items = [] }) {
   if (!items || items.length === 0) return null;
 
   return (

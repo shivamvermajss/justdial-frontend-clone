@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { categories } from "@/data/categories";
+import { CATEGORY_CONST } from "@/Data/Constant/categoryConst";
 
 function CategoryIcon({ iconName }) {
   switch (iconName) {
@@ -86,7 +86,7 @@ function CategoryIcon({ iconName }) {
 }
 
 // Styling map for distinctive soft backgrounds matching each category
-const categoryColorMap = {
+const CATEGORY_COLOR_MAP = {
   restaurants: "bg-orange-50 text-orange-600 group-hover:bg-orange-100",
   hotels: "bg-blue-50 text-blue-600 group-hover:bg-blue-100",
   doctors: "bg-teal-50 text-teal-600 group-hover:bg-teal-100",
@@ -101,7 +101,7 @@ const categoryColorMap = {
   fitness: "bg-green-50 text-green-700 group-hover:bg-green-100",
 };
 
-export default function CategorySection() {
+export default function CategorySectionComp() {
   return (
     <section id="categories" className="w-full scroll-mt-24 space-y-4">
       {/* Section Header */}
@@ -118,8 +118,8 @@ export default function CategorySection() {
 
       {/* Responsive Grid: 6 cols desktop, 4 cols tablet, 3 cols mobile */}
       <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4 md:gap-5">
-        {categories.map((category) => {
-          const colorClass = categoryColorMap[category.slug] || "bg-blue-50 text-[#0076D7]";
+        {CATEGORY_CONST.map((category) => {
+          const colorClass = CATEGORY_COLOR_MAP[category.slug] || "bg-blue-50 text-[#0076D7]";
           return (
             <Link
               key={category.slug}

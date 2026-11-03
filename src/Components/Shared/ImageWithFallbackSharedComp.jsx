@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-export default function ImageWithFallback({
+export default function ImageWithFallbackSharedComp({
   src,
   alt,
   className = "",

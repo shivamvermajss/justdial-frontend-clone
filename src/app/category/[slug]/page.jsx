@@ -1,12 +1,12 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { categories } from "@/data/categories";
-import { getBusinessesByCategory } from "@/lib/businesses";
-import BusinessCard from "@/components/common/BusinessCard";
-import Breadcrumb from "@/components/common/Breadcrumb";
+import { CATEGORY_CONST } from "@/Data/Constant/categoryConst";
+import { getBusinessesByCategory } from "@/Helper/businessHelper";
+import BusinessCardSharedComp from "@/Components/Shared/BusinessCardSharedComp";
+import BreadcrumbSharedComp from "@/Components/Shared/BreadcrumbSharedComp";
 
 export function generateStaticParams() {
-  return categories.map((cat) => ({
+  return CATEGORY_CONST.map((cat) => ({
     slug: cat.slug,
   }));
 }
@@ -20,7 +20,7 @@ export default async function CategoryPage({ params }) {
   }
 
   const normalizedSlug = String(slug).toLowerCase().trim();
-  const category = categories.find((cat) => cat.slug.toLowerCase() === normalizedSlug);
+  const category = CATEGORY_CONST.find((cat) => cat.slug.toLowerCase() === normalizedSlug);
 
   if (!category) {
     notFound();
@@ -33,7 +33,7 @@ export default async function CategoryPage({ params }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
         
         {/* Breadcrumb Navigation */}
-        <Breadcrumb
+        <BreadcrumbSharedComp
           items={[
             { label: "Categories", href: "/#categories" },
             { label: category.name },
@@ -70,7 +70,7 @@ export default async function CategoryPage({ params }) {
         {categoryBusinesses.length > 0 ? (
           <div className="space-y-4">
             {categoryBusinesses.map((business) => (
-              <BusinessCard key={business.id} business={business} />
+              <BusinessCardSharedComp key={business.id} business={business} />
             ))}
           </div>
         ) : (

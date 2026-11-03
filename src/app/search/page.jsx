@@ -1,8 +1,8 @@
 import { Suspense } from "react";
 import Link from "next/link";
-import { searchBusinesses, getAllBusinesses } from "@/lib/businesses";
-import BusinessCard from "@/components/common/BusinessCard";
-import Breadcrumb from "@/components/common/Breadcrumb";
+import { searchBusinesses, getAllBusinesses } from "@/Helper/businessHelper";
+import BusinessCardSharedComp from "@/Components/Shared/BusinessCardSharedComp";
+import BreadcrumbSharedComp from "@/Components/Shared/BreadcrumbSharedComp";
 
 async function SearchResultsList({ searchParams }) {
   const resolvedSearchParams = searchParams ? await searchParams : {};
@@ -70,7 +70,7 @@ async function SearchResultsList({ searchParams }) {
       {displayBusinesses.length > 0 ? (
         <div className="space-y-4">
           {displayBusinesses.map((business) => (
-            <BusinessCard key={business.id} business={business} />
+            <BusinessCardSharedComp key={business.id} business={business} />
           ))}
         </div>
       ) : (
@@ -116,7 +116,7 @@ export default function SearchPage({ searchParams }) {
     <div className="w-full bg-[#fbfbfb] min-h-[calc(100vh-140px)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
         {/* Breadcrumb Navigation */}
-        <Breadcrumb items={[{ label: "Search Results" }]} />
+        <BreadcrumbSharedComp items={[{ label: "Search Results" }]} />
 
         {/* Suspense boundary required for searchParams in Next.js 16 Partial Prefetching */}
         <Suspense

@@ -1,4 +1,4 @@
-export default function SectionHeading({
+export default function SectionHeadingSharedComp({
   title,
   subtitle,
   badge,

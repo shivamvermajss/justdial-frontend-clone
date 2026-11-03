@@ -1,12 +1,12 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { businesses } from "@/data/businesses";
-import { getBusinessBySlug } from "@/lib/businesses";
-import Breadcrumb from "@/components/common/Breadcrumb";
-import ImageWithFallback from "@/components/common/ImageWithFallback";
+import { BUSINESS_CONST } from "@/Data/Constant/businessConst";
+import { getBusinessBySlug } from "@/Helper/businessHelper";
+import BreadcrumbSharedComp from "@/Components/Shared/BreadcrumbSharedComp";
+import ImageWithFallbackSharedComp from "@/Components/Shared/ImageWithFallbackSharedComp";
 
 export function generateStaticParams() {
-  return businesses.map((b) => ({
+  return BUSINESS_CONST.map((b) => ({
     slug: b.slug,
   }));
 }
@@ -30,7 +30,7 @@ export default async function BusinessDetailsPage({ params }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
         
         {/* Breadcrumb Navigation */}
-        <Breadcrumb
+        <BreadcrumbSharedComp
           items={[
             { label: business.category, href: `/category/${business.categorySlug}` },
             { label: business.name },
@@ -105,7 +105,7 @@ export default async function BusinessDetailsPage({ params }) {
             {/* Business Image Showcase */}
             <div className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-2xs">
               <div className="relative aspect-16/9 w-full bg-gray-100 overflow-hidden">
-                <ImageWithFallback
+                <ImageWithFallbackSharedComp
                   src={business.image}
                   alt={business.name}
                   className="w-full h-full object-cover"

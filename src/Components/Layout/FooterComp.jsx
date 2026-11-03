@@ -1,26 +1,26 @@
 import Link from "next/link";
 
-export default function Footer() {
-  const popularCategories = [
-    { name: "Restaurants", href: "/search?category=restaurants" },
-    { name: "Hotels", href: "/search?category=hotels" },
-    { name: "Doctors & Clinics", href: "/search?category=doctors" },
-    { name: "Hospitals", href: "/search?category=hospitals" },
-    { name: "Beauty & Spa", href: "/search?category=beauty-spa" },
-    { name: "Home Services", href: "/search?category=home-services" },
-    { name: "Education & Coaching", href: "/search?category=education" },
-    { name: "Real Estate Agents", href: "/search?category=real-estate" },
-  ];
+const POPULAR_CATEGORIES = [
+  { name: "Restaurants", href: "/search?category=restaurants" },
+  { name: "Hotels", href: "/search?category=hotels" },
+  { name: "Doctors & Clinics", href: "/search?category=doctors" },
+  { name: "Hospitals", href: "/search?category=hospitals" },
+  { name: "Beauty & Spa", href: "/search?category=beauty-spa" },
+  { name: "Home Services", href: "/search?category=home-services" },
+  { name: "Education & Coaching", href: "/search?category=education" },
+  { name: "Real Estate Agents", href: "/search?category=real-estate" },
+];
 
-  const quickLinks = [
-    { name: "About Us", href: "#" },
-    { name: "Contact Us", href: "#" },
-    { name: "Advertise With Us", href: "#" },
-    { name: "Terms of Service", href: "#" },
-    { name: "Privacy Policy", href: "#" },
-    { name: "Help & Support", href: "#" },
-  ];
+const QUICK_LINKS = [
+  { name: "About Us", href: "#" },
+  { name: "Contact Us", href: "#" },
+  { name: "Advertise With Us", href: "#" },
+  { name: "Terms of Service", href: "#" },
+  { name: "Privacy Policy", href: "#" },
+  { name: "Help & Support", href: "#" },
+];
 
+export default function FooterComp() {
   return (
     <footer className="w-full bg-white border-t border-gray-200 mt-auto text-gray-600 text-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
@@ -46,7 +46,7 @@ export default function Footer() {
               Popular Categories
             </h3>
             <ul className="space-y-2">
-              {popularCategories.map((cat) => (
+              {POPULAR_CATEGORIES.map((cat) => (
                 <li key={cat.name}>
                   <Link
                     href={cat.href}
@@ -65,7 +65,7 @@ export default function Footer() {
               Quick Links
             </h3>
             <ul className="space-y-2">
-              {quickLinks.map((link) => (
+              {QUICK_LINKS.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}

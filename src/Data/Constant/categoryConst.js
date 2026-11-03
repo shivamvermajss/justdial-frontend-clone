@@ -3,7 +3,7 @@
  * List of business categories for Justdial clone
  */
 
-export const categories = [
+export const CATEGORY_CONST = [
   {
     id: 1,
     name: "Restaurants",
@@ -90,4 +90,4 @@ export const categories = [
   },
 ];
 
-export default categories;
+export default CATEGORY_CONST;

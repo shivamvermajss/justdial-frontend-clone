@@ -5,7 +5,7 @@
  * Covers all 12 categories with at least 2 sample businesses per category.
  */
 
-export const businesses = [
+export const BUSINESS_CONST = [
   // 1. Restaurants
   {
     id: 1,
@@ -391,4 +391,4 @@ export const businesses = [
   },
 ];
 
-export default businesses;
+export default BUSINESS_CONST;

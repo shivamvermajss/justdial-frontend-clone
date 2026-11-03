@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function HeroSection() {
+export default function HeroSectionComp() {
   return (
     <section className="w-full">
       <div className="relative overflow-hidden bg-gradient-to-r from-[#0060b0] to-[#0076D7] text-white rounded-2xl shadow-sm border border-blue-600/30">

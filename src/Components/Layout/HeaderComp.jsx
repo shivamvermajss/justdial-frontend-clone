@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-const navLinks = [
+const NAV_LINKS = [
   { name: "All Categories", href: "/search?category=all" },
   { name: "Restaurants", href: "/search?category=restaurants" },
   { name: "Hotels", href: "/search?category=hotels" },
@@ -14,7 +14,7 @@ const navLinks = [
   { name: "Home Services", href: "/search?category=home-services" },
 ];
 
-const cities = [
+const CITIES = [
   "All India",
   "Mumbai",
   "Delhi",
@@ -28,7 +28,7 @@ const cities = [
   "Varanasi",
 ];
 
-export default function Header() {
+export default function HeaderComp() {
   const router = useRouter();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCity, setSelectedCity] = useState("All India");
@@ -95,7 +95,7 @@ export default function Header() {
                   onChange={(e) => setSelectedCity(e.target.value)}
                   className="bg-transparent text-xs sm:text-sm font-medium text-gray-700 focus:outline-hidden cursor-pointer"
                 >
-                  {cities.map((city) => (
+                  {CITIES.map((city) => (
                     <option key={city} value={city}>
                       {city}
                     </option>
@@ -189,7 +189,7 @@ export default function Header() {
                 onChange={(e) => setSelectedCity(e.target.value)}
                 className="bg-transparent text-xs font-medium text-gray-700 focus:outline-hidden"
               >
-                {cities.map((city) => (
+                {CITIES.map((city) => (
                   <option key={city} value={city}>
                     {city}
                   </option>
@@ -225,7 +225,7 @@ export default function Header() {
       <div className="hidden md:block border-t border-gray-100 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <nav className="flex items-center gap-1 overflow-x-auto py-2">
-            {navLinks.map((link) => (
+            {NAV_LINKS.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
@@ -245,7 +245,7 @@ export default function Header() {
             Categories & Services
           </div>
           <div className="flex flex-col space-y-1">
-            {navLinks.map((link) => (
+            {NAV_LINKS.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}

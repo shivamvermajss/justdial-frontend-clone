@@ -3,7 +3,7 @@
  * Static datasets for Trending Searches, Popular Services, and Popular Cities
  */
 
-export const trendingSearches = [
+export const TRENDING_SEARCHES = [
   {
     id: 1,
     title: "Restaurants",
@@ -54,7 +54,7 @@ export const trendingSearches = [
   },
 ];
 
-export const popularServices = [
+export const POPULAR_SERVICES = [
   {
     id: 1,
     name: "AC Repair",
@@ -105,7 +105,7 @@ export const popularServices = [
   },
 ];
 
-export const popularPlaces = [
+export const POPULAR_PLACES = [
   {
     id: 1,
     name: "Varanasi",
@@ -151,3 +151,11 @@ export const popularPlaces = [
     listingCount: "Explore Listings",
   },
 ];
+
+export const HOMEPAGE_CONST = {
+  TRENDING_SEARCHES,
+  POPULAR_SERVICES,
+  POPULAR_PLACES,
+};
+
+export default HOMEPAGE_CONST;

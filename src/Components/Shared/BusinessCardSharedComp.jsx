@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import ImageWithFallback from "@/components/common/ImageWithFallback";
+import ImageWithFallbackSharedComp from "@/Components/Shared/ImageWithFallbackSharedComp";
 
-export default function BusinessCard({ business }) {
+export default function BusinessCardSharedComp({ business }) {
   if (!business) return null;
 
   return (
@@ -11,7 +11,7 @@ export default function BusinessCard({ business }) {
       
       {/* Business Image */}
       <div className="relative w-full md:w-56 h-48 md:h-44 rounded-lg overflow-hidden bg-gray-100 shrink-0">
-        <ImageWithFallback
+        <ImageWithFallbackSharedComp
           src={business.image}
           alt={business.name}
           className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"

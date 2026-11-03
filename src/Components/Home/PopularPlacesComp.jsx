@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { popularPlaces } from "@/data/homepage";
-import ImageWithFallback from "@/components/common/ImageWithFallback";
+import { POPULAR_PLACES } from "@/Data/Constant/homepageConst";
+import ImageWithFallbackSharedComp from "@/Components/Shared/ImageWithFallbackSharedComp";
 
-export default function PopularPlaces() {
+export default function PopularPlacesComp() {
   return (
     <section className="w-full space-y-4">
       {/* Section Header */}
@@ -21,7 +21,7 @@ export default function PopularPlaces() {
 
       {/* Grid: 6 cols desktop, 3 cols tablet, 2 cols mobile */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
-        {popularPlaces.map((city) => (
+        {POPULAR_PLACES.map((city) => (
           <Link
             key={city.id}
             href={city.route}
@@ -29,7 +29,7 @@ export default function PopularPlaces() {
           >
             {/* Image Container with subtle dark gradient overlay for text readability */}
             <div className="relative aspect-4/3 w-full bg-gray-100 overflow-hidden">
-              <ImageWithFallback
+              <ImageWithFallbackSharedComp
                 src={city.image}
                 alt={city.name}
                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"

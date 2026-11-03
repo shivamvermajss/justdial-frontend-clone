@@ -1,10 +1,10 @@
-import { businesses } from "../data/businesses.js";
+import { BUSINESS_CONST } from "@/Data/Constant/businessConst";
 
 /**
  * Get all sample businesses
  */
 export function getAllBusinesses() {
-  return businesses;
+  return BUSINESS_CONST;
 }
 
 /**
@@ -14,7 +14,7 @@ export function getAllBusinesses() {
 export function getBusinessBySlug(slug) {
   if (!slug) return null;
   const normalizedSlug = String(slug).toLowerCase().trim();
-  return businesses.find((b) => b.slug.toLowerCase() === normalizedSlug) || null;
+  return BUSINESS_CONST.find((b) => b.slug.toLowerCase() === normalizedSlug) || null;
 }
 
 /**
@@ -24,7 +24,7 @@ export function getBusinessBySlug(slug) {
 export function getBusinessesByCategory(categorySlug) {
   if (!categorySlug) return [];
   const normalizedCategory = String(categorySlug).toLowerCase().trim();
-  return businesses.filter(
+  return BUSINESS_CONST.filter(
     (b) =>
       b.categorySlug.toLowerCase() === normalizedCategory ||
       b.category.toLowerCase().replace(/[^a-z0-9]+/g, "-") === normalizedCategory
@@ -49,7 +49,7 @@ export function searchBusinesses(query = "", city = "") {
   // If city is "all india" or "all", treat as no city filter
   const effectiveCity = cleanCity === "all india" || cleanCity === "all" ? "" : cleanCity;
 
-  return businesses.filter((b) => {
+  return BUSINESS_CONST.filter((b) => {
     // City filter
     const matchesCity = !effectiveCity || b.city.toLowerCase().includes(effectiveCity);
     if (!matchesCity) return false;
